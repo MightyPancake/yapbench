@@ -1,0 +1,17 @@
+============================================================
+  YAP Thesis — Chapter 11 Benchmark Summary
+============================================================
+
+Problem: hashmap_n10000000
+----------------------------------------
+  c       compile:    0.0650s  run:    0.9186s  binary: 16,136B
+  zig     compile:    9.6352s  run:    0.9987s  (1.1× vs c)  binary: 3,852,400B
+  nim     compile:    0.5360s  run:    1.4467s  (1.6× vs c)  binary: 94,472B
+  yap     compile:    0.3916s  run:    4.2111s  (4.6× vs c)  binary: 43,168B
+
+Problem: hashmap_stdlib_n10000000
+----------------------------------------
+  zig     compile:   15.7504s  run:    1.9304s  binary: 3,871,808B
+  nim     compile:    1.0916s  run:    3.1191s  (1.6× vs zig)  binary: 95,960B
+  yap     compile:    0.6073s  run:    3.1274s  (1.6× vs zig)  binary: 43,168B
+  c       compile:    0.3597s  run:    3.8434s  (2.0× vs zig)  binary: 21,448B

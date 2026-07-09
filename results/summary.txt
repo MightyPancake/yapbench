@@ -1,0 +1,178 @@
+============================================================
+  YAP Thesis — Chapter 11 Benchmark Summary
+============================================================
+
+Problem: btree_n16383
+----------------------------------------
+  zig     compile:    8.5313s  run:    0.0013s  binary: 3,851,128B
+  nim     compile:    0.5274s  run:    0.0015s  (1.2× vs zig)  binary: 94,424B
+  c       compile:    0.0980s  run:    0.0018s  (1.4× vs zig)  binary: 20,328B
+  yap     compile:    0.3164s  run:    0.0023s  (1.8× vs zig)  binary: 57,416B
+
+Problem: fib_n30
+----------------------------------------
+  nim     compile:    0.5190s  run:    0.0013s  binary: 89,680B
+  c       compile:    0.0578s  run:    0.0020s  (1.6× vs nim)  binary: 16,032B
+  yap     compile:    0.2790s  run:    0.0023s  (1.8× vs nim)  binary: 33,288B
+  zig     compile:    8.4882s  run:    0.0026s  (2.0× vs nim)  binary: 3,840,736B
+
+Problem: fib_n40
+----------------------------------------
+  nim     compile:    0.5190s  run:    0.0079s  binary: 89,680B
+  c       compile:    0.0578s  run:    0.0653s  (8.2× vs nim)  binary: 16,032B
+  yap     compile:    0.2790s  run:    0.0766s  (9.7× vs nim)  binary: 33,288B
+  zig     compile:    8.4882s  run:    0.1815s  (22.9× vs nim)  binary: 3,840,736B
+
+Problem: fib_n45
+----------------------------------------
+  nim     compile:    0.5190s  run:    0.0513s  binary: 89,680B
+  c       compile:    0.0578s  run:    0.7545s  (14.7× vs nim)  binary: 16,032B
+  yap     compile:    0.2790s  run:    0.8314s  (16.2× vs nim)  binary: 33,288B
+  zig     compile:    8.4882s  run:    1.9909s  (38.8× vs nim)  binary: 3,840,736B
+
+Problem: hashmap_n1000000
+----------------------------------------
+  zig     compile:    8.5345s  run:    0.0614s  binary: 3,852,400B
+  c       compile:    0.0798s  run:    0.0728s  (1.2× vs zig)  binary: 16,136B
+  nim     compile:    0.5181s  run:    0.0944s  (1.5× vs zig)  binary: 94,472B
+  yap     compile:    0.3688s  run:    0.2226s  (3.6× vs zig)  binary: 43,168B
+
+Problem: hashmap_n5000000
+----------------------------------------
+  c       compile:    0.0798s  run:    0.3320s  binary: 16,136B
+  zig     compile:    8.5345s  run:    0.3381s  (1.0× vs c)  binary: 3,852,400B
+  nim     compile:    0.5181s  run:    0.5478s  (1.7× vs c)  binary: 94,472B
+  yap     compile:    0.3688s  run:    1.2797s  (3.9× vs c)  binary: 43,168B
+
+Problem: hashmap_n10000000
+----------------------------------------
+  c       compile:    0.0798s  run:    0.6723s  binary: 16,136B
+  zig     compile:    8.5345s  run:    0.6838s  (1.0× vs c)  binary: 3,852,400B
+  nim     compile:    0.5181s  run:    1.1190s  (1.7× vs c)  binary: 94,472B
+  yap     compile:    0.3688s  run:    2.6372s  (3.9× vs c)  binary: 43,168B
+
+Problem: hashmap_stdlib_n1000000
+----------------------------------------
+  zig     compile:    8.6086s  run:    0.0938s  binary: 3,871,808B
+  nim     compile:    0.5370s  run:    0.1443s  (1.5× vs zig)  binary: 95,960B
+  yap     compile:    0.3704s  run:    0.2219s  (2.4× vs zig)  binary: 43,168B
+  c       compile:    0.1756s  run:    0.2266s  (2.4× vs zig)  binary: 21,448B
+
+Problem: hashmap_stdlib_n5000000
+----------------------------------------
+  zig     compile:    8.6086s  run:    0.5583s  binary: 3,871,808B
+  nim     compile:    0.5370s  run:    0.9856s  (1.8× vs zig)  binary: 95,960B
+  c       compile:    0.1756s  run:    1.2571s  (2.3× vs zig)  binary: 21,448B
+  yap     compile:    0.3704s  run:    1.2718s  (2.3× vs zig)  binary: 43,168B
+
+Problem: hashmap_stdlib_n10000000
+----------------------------------------
+  zig     compile:    8.6086s  run:    1.4674s  binary: 3,871,808B
+  nim     compile:    0.5370s  run:    2.0840s  (1.4× vs zig)  binary: 95,960B
+  c       compile:    0.1756s  run:    2.6248s  (1.8× vs zig)  binary: 21,448B
+  yap     compile:    0.3704s  run:    2.6552s  (1.8× vs zig)  binary: 43,168B
+
+Problem: histogram_n100000000
+----------------------------------------
+  zig     compile:    8.5100s  run:    0.0925s  binary: 3,848,952B
+  yap     compile:    0.2886s  run:    0.0985s  (1.1× vs zig)  binary: 53,176B
+  c       compile:    0.0668s  run:    0.0991s  (1.1× vs zig)  binary: 16,192B
+  nim     compile:    0.5167s  run:    0.1039s  (1.1× vs zig)  binary: 90,088B
+
+Problem: histogram_n500000000
+----------------------------------------
+  zig     compile:    8.5100s  run:    0.4513s  binary: 3,848,952B
+  yap     compile:    0.2886s  run:    0.4775s  (1.1× vs zig)  binary: 53,176B
+  c       compile:    0.0668s  run:    0.4795s  (1.1× vs zig)  binary: 16,192B
+  nim     compile:    0.5167s  run:    0.5130s  (1.1× vs zig)  binary: 90,088B
+
+Problem: histogram_n1000000000
+----------------------------------------
+  zig     compile:    8.5100s  run:    0.8747s  binary: 3,848,952B
+  yap     compile:    0.2886s  run:    0.9362s  (1.1× vs zig)  binary: 53,176B
+  c       compile:    0.0668s  run:    0.9372s  (1.1× vs zig)  binary: 16,192B
+  nim     compile:    0.5167s  run:    1.0039s  (1.1× vs zig)  binary: 90,088B
+
+Problem: lcs_n5000
+----------------------------------------
+  yap     compile:    0.2881s  run:    0.0110s  binary: 53,192B
+  nim     compile:    0.5159s  run:    0.0118s  (1.1× vs yap)  binary: 89,976B
+  c       compile:    0.0692s  run:    0.0137s  (1.3× vs yap)  binary: 16,128B
+  zig     compile:    8.5414s  run:    0.0252s  (2.3× vs yap)  binary: 3,855,096B
+
+Problem: lcs_n15000
+----------------------------------------
+  c       compile:    0.0692s  run:    0.0774s  binary: 16,128B
+  yap     compile:    0.2881s  run:    0.0808s  (1.0× vs c)  binary: 53,192B
+  nim     compile:    0.5159s  run:    0.1025s  (1.3× vs c)  binary: 89,976B
+  zig     compile:    8.5414s  run:    0.2668s  (3.4× vs c)  binary: 3,855,096B
+
+Problem: lcs_n30000
+----------------------------------------
+  nim     compile:    0.5159s  run:    0.9629s  binary: 89,976B
+  c       compile:    0.0692s  run:    0.9572s  (1.0× vs nim)  binary: 16,128B
+  yap     compile:    0.2881s  run:    0.9689s  (1.0× vs nim)  binary: 53,192B
+  zig     compile:    8.5414s  run:    1.2955s  (1.3× vs nim)  binary: 3,855,096B
+
+Problem: matmul_n100
+----------------------------------------
+  zig     compile:    8.6309s  run:    0.0012s  binary: 3,878,328B
+  nim     compile:    0.5188s  run:    0.0013s  (1.1× vs zig)  binary: 94,480B
+  c       compile:    0.0793s  run:    0.0016s  (1.3× vs zig)  binary: 16,208B
+  yap     compile:    0.2992s  run:    0.0019s  (1.6× vs zig)  binary: 57,384B
+
+Problem: matmul_n500
+----------------------------------------
+  zig     compile:    8.6309s  run:    0.0304s  binary: 3,878,328B
+  yap     compile:    0.2992s  run:    0.0365s  (1.2× vs zig)  binary: 57,384B
+  c       compile:    0.0793s  run:    0.0363s  (1.2× vs zig)  binary: 16,208B
+  nim     compile:    0.5188s  run:    0.0400s  (1.3× vs zig)  binary: 94,480B
+
+Problem: matmul_n1000
+----------------------------------------
+  zig     compile:    8.6309s  run:    0.2150s  binary: 3,878,328B
+  yap     compile:    0.2992s  run:    0.2583s  (1.2× vs zig)  binary: 57,384B
+  c       compile:    0.0793s  run:    0.2602s  (1.2× vs zig)  binary: 16,208B
+  nim     compile:    0.5188s  run:    0.2696s  (1.3× vs zig)  binary: 94,480B
+
+Problem: n_queens_n12
+----------------------------------------
+  nim     compile:    0.5213s  run:    0.0061s  binary: 89,848B
+  zig     compile:    8.5012s  run:    0.0062s  (1.0× vs nim)  binary: 3,841,568B
+  yap     compile:    0.2892s  run:    0.0074s  (1.2× vs nim)  binary: 33,288B
+  c       compile:    0.0654s  run:    0.0077s  (1.3× vs nim)  binary: 16,040B
+
+Problem: n_queens_n14
+----------------------------------------
+  yap     compile:    0.2892s  run:    0.1209s  binary: 33,288B
+  nim     compile:    0.5213s  run:    0.1218s  (1.0× vs yap)  binary: 89,848B
+  c       compile:    0.0654s  run:    0.1234s  (1.0× vs yap)  binary: 16,040B
+  zig     compile:    8.5012s  run:    0.1321s  (1.1× vs yap)  binary: 3,841,568B
+
+Problem: n_queens_n16
+----------------------------------------
+  yap     compile:    0.2892s  run:    4.7958s  binary: 33,288B
+  c       compile:    0.0654s  run:    4.8687s  (1.0× vs yap)  binary: 16,040B
+  nim     compile:    0.5213s  run:    4.8979s  (1.0× vs yap)  binary: 89,848B
+  zig     compile:    8.5012s  run:    5.4284s  (1.1× vs yap)  binary: 3,841,568B
+
+Problem: quicksort_n1000000
+----------------------------------------
+  zig     compile:    8.5192s  run:    0.0484s  binary: 3,852,344B
+  nim     compile:    0.5210s  run:    0.0498s  (1.0× vs zig)  binary: 94,192B
+  c       compile:    0.0848s  run:    0.0694s  (1.4× vs zig)  binary: 16,176B
+  yap     compile:    0.3231s  run:    0.0691s  (1.4× vs zig)  binary: 57,352B
+
+Problem: quicksort_n10000000
+----------------------------------------
+  yap     compile:    0.3231s  run:    0.4792s  binary: 57,352B
+  c       compile:    0.0848s  run:    0.4830s  (1.0× vs yap)  binary: 16,176B
+  zig     compile:    8.5192s  run:    0.4874s  (1.0× vs yap)  binary: 3,852,344B
+  nim     compile:    0.5210s  run:    0.4961s  (1.0× vs yap)  binary: 94,192B
+
+Problem: quicksort_n20000000
+----------------------------------------
+  yap     compile:    0.3231s  run:    0.9799s  binary: 57,352B
+  c       compile:    0.0848s  run:    0.9881s  (1.0× vs yap)  binary: 16,176B
+  zig     compile:    8.5192s  run:    1.0020s  (1.0× vs yap)  binary: 3,852,344B
+  nim     compile:    0.5210s  run:    1.0211s  (1.0× vs yap)  binary: 94,192B
