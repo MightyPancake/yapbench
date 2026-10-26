@@ -26,13 +26,13 @@ none fn print_u64(u64 v) {
     i32 n = 0;
     while (v > 0) {
         u64 d = v % 10;
-        digits:[n] = d.(i32) + 48;
+        digits[n] = d.(i32) + 48;
         v = v / 10;
         n = n + 1;
     }
     i32 i = n - 1;
     while (i >= 0) {
-        io->print_char(digits:[i]);
+        io->print_char(digits[i]);
         i = i - 1;
     }
 }
@@ -67,7 +67,7 @@ none fn fill(f64@ mat, i32 n, u64 seed) {
         i32 j = 0;
         while (j < n) {
             u64 idx = (i * n + j + 1).(u64) + seed;
-            mat:[i * n + j] = (splitmix64(idx) % 1000003).(f64);
+            mat[i * n + j] = (splitmix64(idx) % 1000003).(f64);
             j = j + 1;
         }
         i = i + 1;
@@ -81,15 +81,15 @@ none fn matmul(f64@ a, f64@ b, f64@ c, i32 n) {
     while (i < n) {
         i32 j = 0;
         while (j < n) {
-            c:[i * n + j] = 0.0;
+            c[i * n + j] = 0.0;
             j = j + 1;
         }
         i32 k = 0;
         while (k < n) {
-            f64 aik = a:[i * n + k];
+            f64 aik = a[i * n + k];
             i32 j = 0;
             while (j < n) {
-                c:[i * n + j] = c:[i * n + j] + aik * b:[k * n + j];
+                c[i * n + j] = c[i * n + j] + aik * b[k * n + j];
                 j = j + 1;
             }
             k = k + 1;
@@ -105,18 +105,18 @@ f64 fn checksum(f64@ mat, i32 n) {
     i32 total = n * n;
     i32 i = 0;
     while (i < total) {
-        sum = sum + mat:[i];
+        sum = sum + mat[i];
         i = i + 1;
     }
     ret sum;
 }
 
 i32 fn main(byte@[] args) {
-    byte@ n_str = args:[1];
+    byte@ n_str = args[1];
     i32 n = 0;
     i32 i = 0;
-    while (n_str:[i] != 0) {
-        n = n * 10 + n_str:[i].(i32) - 48;
+    while (n_str[i] != 0) {
+        n = n * 10 + n_str[i].(i32) - 48;
         i = i + 1;
     }
 

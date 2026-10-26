@@ -60,23 +60,23 @@ none fn print_u64(u64 v) {
     i32 n = 0;
     while (v > 0) {
         u64 d = v % 10;
-        digits:[n] = d.(i32) + 48;
+        digits[n] = d.(i32) + 48;
         v = v / 10;
         n = n + 1;
     }
     i32 i = n - 1;
     while (i >= 0) {
-        io->print_char(digits:[i]);
+        io->print_char(digits[i]);
         i = i - 1;
     }
 }
 
 i32 fn main(byte@[] args) {
-    byte@ n_str = args:[1];
+    byte@ n_str = args[1];
     i32 n = 0;
     i32 k = 0;
-    while (n_str:[k] != 0) {
-        n = n * 10 + n_str:[k].(i32) - 48;
+    while (n_str[k] != 0) {
+        n = n * 10 + n_str[k].(i32) - 48;
         k = k + 1;
     }
 

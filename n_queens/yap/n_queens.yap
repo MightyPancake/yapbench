@@ -23,11 +23,11 @@ u64 fn solve(u64 cols, u64 diag1, u64 diag2, u64 full) {
 }
 
 i32 fn main(byte@[] args) {
-    byte@ n_str = args:[1];
+    byte@ n_str = args[1];
     u64 n = 0;
     i32 i = 0;
-    while (n_str:[i] != 0) {
-        n = n * 10 + n_str:[i].(u64) - 48;
+    while (n_str[i] != 0) {
+        n = n * 10 + n_str[i].(u64) - 48;
         i = i + 1;
     }
 

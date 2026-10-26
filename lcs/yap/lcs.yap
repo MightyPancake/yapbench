@@ -29,7 +29,7 @@ none fn fill(byte@ buf, i32 n, u64 seed) {
     while (i < n) {
         u64 idx = (i + 1).(u64) + seed;
         u64 h = splitmix64(idx) % 4;
-        buf:[i] = (65 + h.(i32)).(byte);
+        buf[i] = (65 + h.(i32)).(byte);
         i = i + 1;
     }
     ret;
@@ -48,19 +48,19 @@ i32 fn lcs_length(byte@ a, byte@ b, i32 n) {
 
     i32 j0 = 0;
     while (j0 <= n) {
-        prev:[j0] = 0;
+        prev[j0] = 0;
         j0 = j0 + 1;
     }
 
     i32 i = 1;
     while (i <= n) {
-        curr:[0] = 0;
+        curr[0] = 0;
         i32 j = 1;
         while (j <= n) {
-            if (a:[i - 1] == b:[j - 1]) {
-                curr:[j] = prev:[j - 1] + 1;
+            if (a[i - 1] == b[j - 1]) {
+                curr[j] = prev[j - 1] + 1;
             } else {
-                curr:[j] = max_i32(prev:[j], curr:[j - 1]);
+                curr[j] = max_i32(prev[j], curr[j - 1]);
             }
             j = j + 1;
         }
@@ -70,18 +70,18 @@ i32 fn lcs_length(byte@ a, byte@ b, i32 n) {
         i = i + 1;
     }
 
-    i32 result = prev:[n];
+    i32 result = prev[n];
     stdlib->free(prev_raw);
     stdlib->free(curr_raw);
     ret result;
 }
 
 i32 fn main(byte@[] args) {
-    byte@ n_str = args:[1];
+    byte@ n_str = args[1];
     i32 n = 0;
     i32 k = 0;
-    while (n_str:[k] != 0) {
-        n = n * 10 + n_str:[k].(i32) - 48;
+    while (n_str[k] != 0) {
+        n = n * 10 + n_str[k].(i32) - 48;
         k = k + 1;
     }
 

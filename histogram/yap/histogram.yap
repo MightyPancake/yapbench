@@ -32,13 +32,13 @@ none fn print_u64(u64 v) {
     i32 n = 0;
     while (v > 0) {
         u64 d = v % 10;
-        digits:[n] = d.(i32) + 48;
+        digits[n] = d.(i32) + 48;
         v = v / 10;
         n = n + 1;
     }
     i32 i = n - 1;
     while (i >= 0) {
-        io->print_char(digits:[i]);
+        io->print_char(digits[i]);
         i = i - 1;
     }
 }
@@ -47,7 +47,7 @@ none fn fill(byte@ buf, i32 n) {
     i32 i = 0;
     while (i < n) {
         u64 idx = (i + 1).(u64);
-        buf:[i] = (splitmix64(idx) % 256).(byte);
+        buf[i] = (splitmix64(idx) % 256).(byte);
         i = i + 1;
     }
     ret;
@@ -56,13 +56,13 @@ none fn fill(byte@ buf, i32 n) {
 none fn histogram(byte@ buf, i32 n, u64@ counts) {
     i32 b = 0;
     while (b < 256) {
-        counts:[b] = 0;
+        counts[b] = 0;
         b = b + 1;
     }
     i32 i = 0;
     while (i < n) {
-        i32 bucket = buf:[i].(i32);
-        counts:[bucket] = counts:[bucket] + 1;
+        i32 bucket = buf[i].(i32);
+        counts[bucket] = counts[bucket] + 1;
         i = i + 1;
     }
     ret;
@@ -72,18 +72,18 @@ u64 fn checksum(u64@ counts) {
     u64 sum = 0;
     i32 b = 0;
     while (b < 256) {
-        sum = sum + counts:[b] * (b + 1).(u64);
+        sum = sum + counts[b] * (b + 1).(u64);
         b = b + 1;
     }
     ret sum;
 }
 
 i32 fn main(byte@[] args) {
-    byte@ n_str = args:[1];
+    byte@ n_str = args[1];
     i32 n = 0;
     i32 k = 0;
-    while (n_str:[k] != 0) {
-        n = n * 10 + n_str:[k].(i32) - 48;
+    while (n_str[k] != 0) {
+        n = n * 10 + n_str[k].(i32) - 48;
         k = k + 1;
     }
 
